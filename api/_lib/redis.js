@@ -89,7 +89,21 @@ export function db() {
   if (client) return client;
   if (Redis) {
     // Sin deserialización automática: todo se guarda y lee como texto (evita que "1234" pase a número)
-    client = new Redis({ url: UPSTASH_URL, token: UPSTASH_TOKEN, automaticDeserialization: false });
+    const c = new Redis({ url: UPSTASH_URL, token: UPSTASH_TOKEN, automaticDeserialization: false });
+
+    // Con automaticDeserialization:false, hgetall devuelve una lista plana ["campo","valor",...]
+    // en vez de un objeto. Aquí se convierte a objeto (o null si la clave no existe).
+    const rawHgetall = c.hgetall.bind(c);
+    c.hgetall = async (k) => {
+      const r = await rawHgetall(k);
+      if (!Array.isArray(r)) return r;
+      if (!r.length) return null;
+      const o = {};
+      for (let i = 0; i < r.length; i += 2) o[r[i]] = r[i + 1];
+      return o;
+    };
+
+    client = c;
   } else if (!process.env.VERCEL) {
     console.warn('[dev] Base de datos en memoria (no persistente).');
     client = new MemoryRedis();
