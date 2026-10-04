@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2a0a0e">
+<title>NEXUS Casino · Ruleta europea</title>
+<link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style/style.css">
+</head>
+<body class="page-game">
+
+<header class="topbar">
+  <a class="brand" href="/juego%20ruleta/roulette.html"><img src="/img/logo.svg" alt="" width="40" height="40"><span>NEXUS</span></a>
+  <div class="top-right">
+    <span id="tier" class="badge">Jugador</span>
+    <span class="who" id="who"></span>
+    <div class="balance" title="Saldo de juego"><span class="coin">NXS</span><span id="balance">0</span></div>
+    <button id="daily" class="btn small" type="button">Bono diario</button>
+    <button id="wallet-btn" class="btn small ghost" type="button">Conectar wallet</button>
+    <button id="music" class="btn small ghost" type="button" aria-pressed="false" title="Música ambiente">♪</button>
+    <button id="logout" class="btn small ghost" type="button">Salir</button>
+  </div>
+</header>
+
+<main class="room">
+  <section class="wheel-panel">
+    <div class="bowl"><canvas id="wheel" width="560" height="560" aria-label="Ruleta europea"></canvas></div>
+    <div class="result" id="result" role="status" aria-live="polite">Hagan sus apuestas</div>
+    <div class="history" id="history" aria-label="Últimos números"></div>
+
+    <div class="nft-card">
+      <h3>Ventajas para holders de NFT</h3>
+      <div id="nft-body" class="nft-body">Cargando…</div>
+    </div>
+  </section>
+
+  <section class="table-panel">
+    <div class="rail">
+      <div class="felt">
+        <div class="board-scroll"><div class="board" id="board"></div></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="chips" id="chips" aria-label="Fichas"></div>
+      <div class="actions">
+        <button class="btn ghost" id="undo" type="button">Deshacer</button>
+        <button class="btn ghost" id="clear" type="button">Limpiar</button>
+        <button class="btn ghost" id="rebet" type="button">Repetir</button>
+        <button class="btn" id="spin" type="button">GIRAR</button>
+      </div>
+    </div>
+    <div class="total">Apuesta total: <b id="total">0</b> · Máximo por giro: <b>10.000</b></div>
+  </section>
+</main>
+
+<footer class="legal">
+  Saldo de juego sin valor monetario. Solo mayores de 18 años. Juega con responsabilidad.
+</footer>
+
+<script type="module" src="/js/roulette.js"></script>
+</body>
+</html>

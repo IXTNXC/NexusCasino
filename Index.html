@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NEXUS Casino: ruleta europea, token NXS y ventajas para holders de NFT.">
+<meta name="theme-color" content="#2a0a0e">
+<title>NEXUS Casino · Ruleta, token NXS y NFT</title>
+<link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style/style.css">
+</head>
+<body class="page-auth">
+
+<header class="site-head">
+  <a class="brand" href="/"><img src="/img/logo.svg" alt="" width="44" height="44"><span>NEXUS</span></a>
+  <span class="age-pill">+18</span>
+</header>
+
+<main class="auth-layout">
+  <section class="hero">
+    <p class="eyebrow">Salón de juego</p>
+    <h1 class="logo-big">NEXUS</h1>
+    <p class="sub">Casino clásico · Ruleta europea</p>
+    <ul class="perks">
+      <li><b>Ruleta europea</b><span>Un solo cero, la ventaja más baja de la mesa (2,70&nbsp;%).</span></li>
+      <li><b>Resultados justos</b><span>Cada giro lo decide el servidor con aleatoriedad criptográfica.</span></li>
+      <li><b>Token NXS</b><span>Tu saldo de juego, pensado para integrarse con el token NXS.</span></li>
+      <li><b>Ventajas NFT</b><span>Vincula tu wallet y obtén bono diario mayor y cashback.</span></li>
+    </ul>
+  </section>
+
+  <section class="auth-card" aria-label="Acceso">
+    <div class="tabs" role="tablist">
+      <button id="tab-login" class="active" type="button" role="tab" aria-selected="true">Iniciar sesión</button>
+      <button id="tab-register" type="button" role="tab" aria-selected="false">Registrarse</button>
+    </div>
+
+    <form id="form-login" class="active" autocomplete="on" novalidate>
+      <div class="field">
+        <label for="l-user">Usuario o correo</label>
+        <input id="l-user" name="username" type="text" autocomplete="username" required maxlength="254">
+      </div>
+      <div class="field">
+        <label for="l-pass">Contraseña</label>
+        <input id="l-pass" name="password" type="password" autocomplete="current-password" required maxlength="200">
+      </div>
+      <div class="msg" id="msg-login" role="alert"></div>
+      <button class="btn" type="submit">Entrar al salón</button>
+    </form>
+
+    <form id="form-register" autocomplete="on" novalidate>
+      <div class="field">
+        <label for="r-user">Nombre de usuario</label>
+        <input id="r-user" name="username" type="text" minlength="3" maxlength="16" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="r-email">Correo electrónico</label>
+        <input id="r-email" name="email" type="email" autocomplete="email" required maxlength="254">
+      </div>
+      <div class="field">
+        <label for="r-birth">Fecha de nacimiento</label>
+        <input id="r-birth" name="birth" type="date" required>
+      </div>
+      <div class="field">
+        <label for="r-pass">Contraseña (8+ caracteres, letras y números)</label>
+        <input id="r-pass" name="password" type="password" minlength="8" maxlength="72" autocomplete="new-password" required>
+      </div>
+      <div class="field">
+        <label for="r-pass2">Repetir contraseña</label>
+        <input id="r-pass2" type="password" minlength="8" maxlength="72" autocomplete="new-password" required>
+      </div>
+      <label class="check"><input id="r-terms" type="checkbox" required>
+        <span>Soy mayor de 18 años y acepto los términos y condiciones.</span></label>
+      <div class="msg" id="msg-register" role="alert"></div>
+      <button class="btn" type="submit">Crear cuenta · 1.000 créditos de bienvenida</button>
+    </form>
+  </section>
+</main>
+
+<footer class="legal">
+  Juego solo para mayores de 18 años. Los créditos de juego no tienen valor monetario. Juega con responsabilidad.
+</footer>
+
+<script type="module" src="/js/auth.js"></script>
+</body>
+</html>
