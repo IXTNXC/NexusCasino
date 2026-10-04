@@ -33,8 +33,9 @@ export default api({ methods: ['POST'], limit: { key: 'register', max: 5, window
     await r.del(`e:${email}`);
     throw new HttpError(409, 'Ese nombre de usuario ya existe.');
   }
-  await r.hset(`u:${key}`, { email, hash, bal: START_BALANCE, created: Date.now(), sv: 0, wallet: '' });
+  const created = Date.now();
+  await r.hset(`u:${key}`, { email, hash, bal: START_BALANCE, created, sv: 0, wallet: '' });
 
   await issueSession(req, res, key, 0);
- send(res, 201, { user: publicUser({ name: username, bal: START_BALANCE, wallet: null, created: Date.now() }) });
+  send(res, 201, { user: publicUser({ name: username, bal: START_BALANCE, wallet: null, created }) });
 });
